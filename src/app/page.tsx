@@ -75,7 +75,7 @@ export default function EntryPortal() {
     <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen bg-brand-bg text-brand-text font-sans selection:bg-brand-accent selection:text-white">
       
       {/* LEFT PANE: Product & Brand Information Panel */}
-      <section className="lg:col-span-5 bg-brand-dark text-white p-8 md:p-12 lg:p-16 flex flex-col justify-between relative overflow-hidden min-h-[40vh] lg:min-h-screen">
+      <section className="lg:col-span-5 bg-brand-dark text-white p-6 md:p-12 lg:p-16 flex flex-col justify-between relative overflow-hidden min-h-fit lg:min-h-screen py-8 lg:py-16 border-b lg:border-b-0 lg:border-r border-brand-border/10">
         {/* Network / Map dotted lines motif */}
         <div className="absolute inset-0 opacity-15 pointer-events-none grid-motif"></div>
         <div className="absolute -top-40 -left-40 w-[450px] h-[450px] rounded-full bg-brand-accent/25 blur-3xl pointer-events-none"></div>
@@ -100,13 +100,13 @@ export default function EntryPortal() {
         </div>
 
         {/* Middle Body: Pitch, Taglines & Key Highlights */}
-        <div className="relative z-10 my-auto py-12 lg:py-0 space-y-8 max-w-lg">
-          <div className="space-y-3">
+        <div className="relative z-10 my-auto py-6 lg:py-0 space-y-6 lg:space-y-8 max-w-lg">
+          <div className="space-y-2 lg:space-y-3">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-brand-warning tracking-wider uppercase">
               <Sparkles className="w-3.5 h-3.5" />
               Pakistani AI FMCG Technology
             </span>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-black tracking-tight leading-[1.1]">
+            <h1 className="text-3xl lg:text-5xl font-display font-black tracking-tight leading-[1.1]">
               Beyond Tracking. <br />
               <span className="text-brand-success">Start Predicting.</span>
             </h1>
@@ -115,8 +115,8 @@ export default function EntryPortal() {
             </p>
           </div>
 
-          {/* Key Features List */}
-          <div className="space-y-4 pt-2">
+          {/* Key Features List - Shown on desktop/tablet, simplified on mobile */}
+          <div className="space-y-4 pt-2 hidden lg:block">
             <div className="flex items-start gap-4">
               <div className="p-2.5 rounded-xl bg-brand-accent/20 border border-brand-accent/30 text-brand-success shrink-0 mt-0.5">
                 <MapPin className="w-4 h-4" />
@@ -155,8 +155,8 @@ export default function EntryPortal() {
           </div>
         </div>
 
-        {/* Bottom Panel: Local economy notice */}
-        <div className="relative z-10 pt-4 border-t border-white/5 flex items-center gap-3">
+        {/* Bottom Panel: Local economy notice - hidden on mobile to conserve screen fold */}
+        <div className="relative z-10 pt-4 border-t border-white/5 hidden lg:flex items-center gap-3">
           <Globe className="w-6 h-6 text-brand-success shrink-0 animate-pulse" />
           <div className="text-xs">
             <p className="font-bold text-white">Save Pakistan's Foreign Reserves</p>
@@ -168,7 +168,7 @@ export default function EntryPortal() {
       </section>
 
       {/* RIGHT PANE: Dynamic Login and Guest Gateway Portal */}
-      <section className="lg:col-span-7 flex flex-col justify-between p-6 md:p-12 lg:p-16 relative">
+      <section className="lg:col-span-7 flex flex-col justify-between p-5 md:p-12 lg:p-16 relative bg-brand-bg">
         {/* Network decoration background */}
         <div className="absolute right-0 bottom-0 w-64 h-64 opacity-5 pointer-events-none grid-motif"></div>
 
@@ -180,12 +180,12 @@ export default function EntryPortal() {
         </div>
 
         {/* Main Login / Gateway Card Container */}
-        <div className="max-w-md w-full mx-auto my-auto py-12 lg:py-0 space-y-8 animate-fade-in">
+        <div className="max-w-md w-full mx-auto my-auto py-6 lg:py-0 space-y-6 lg:space-y-8 animate-fade-in">
           <div className="space-y-2">
             <h2 className="text-2xl md:text-3xl font-display font-black text-brand-dark tracking-tight">
               Access BeatFlow
             </h2>
-            <p className="text-sm text-brand-muted font-semibold">
+            <p className="text-xs md:text-sm text-brand-muted font-semibold">
               Select your role to access your designated workspace, or launch guest mode.
             </p>
           </div>
@@ -364,7 +364,7 @@ export default function EntryPortal() {
           </form>
 
           {/* Visual Separator */}
-          <div className="relative flex py-2 items-center">
+          <div className="relative flex py-1 items-center">
             <div className="flex-grow border-t border-brand-border"></div>
             <span className="flex-shrink mx-4 text-[10px] font-bold text-brand-muted uppercase tracking-widest bg-brand-bg px-2">
               Guest Portals Bypass
@@ -373,29 +373,32 @@ export default function EntryPortal() {
           </div>
 
           {/* TWO GUEST LOGIN BUTTONS: Dashboard and Mobile App */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
             
             {/* Guest Login Dashboard */}
             <button
               type="button"
               onClick={() => handleGuestLogin('admin')}
               disabled={loading}
-              className="flex flex-col items-start p-4 bg-white border border-brand-border rounded-2xl hover:border-brand-accent/50 hover:bg-white hover:shadow-lg transition-all text-left space-y-3 group active:scale-[0.99]"
+              className="flex flex-row sm:flex-col items-center sm:items-start p-3.5 bg-white border border-brand-border rounded-2xl hover:border-brand-accent/50 hover:bg-white hover:shadow-lg transition-all text-left gap-3.5 sm:space-y-2.5 sm:gap-0 group active:scale-[0.99]"
             >
-              <div className="p-2.5 bg-brand-accent/10 rounded-xl text-brand-accent group-hover:scale-105 transition-transform">
+              <div className="p-2.5 bg-brand-accent/10 rounded-xl text-brand-accent group-hover:scale-105 transition-transform shrink-0">
                 <LayoutDashboard className="w-5 h-5" />
               </div>
-              <div>
+              <div className="flex-1">
                 <h3 className="text-xs font-bold text-brand-dark flex items-center gap-1">
-                  <span>Guest Login Dashboard</span>
+                  <span>Guest Dashboard</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                 </h3>
-                <p className="text-[10px] text-brand-muted mt-1 leading-relaxed">
-                  Access the distributor control room. Track live stock levels, optimize driver routes, and see ledger summaries.
+                <p className="text-[10px] text-brand-muted mt-0.5 leading-relaxed hidden sm:block">
+                  Access the distributor control room. Track live stock, routes, and ledgers.
+                </p>
+                <p className="text-[10px] text-brand-muted mt-0.5 leading-relaxed sm:hidden">
+                  Launch the desktop distributor control room overview.
                 </p>
               </div>
-              <span className="text-[9px] font-extrabold text-brand-accent px-2 py-0.5 rounded bg-brand-accent/5 self-start">
-                Desktop Portal
+              <span className="text-[9px] font-extrabold text-brand-accent px-1.5 py-0.5 rounded bg-brand-accent/5 self-center sm:self-start shrink-0">
+                Admin
               </span>
             </button>
 
@@ -404,22 +407,25 @@ export default function EntryPortal() {
               type="button"
               onClick={() => handleGuestLogin('app')}
               disabled={loading}
-              className="flex flex-col items-start p-4 bg-white border border-brand-border rounded-2xl hover:border-brand-accent/50 hover:bg-white hover:shadow-lg transition-all text-left space-y-3 group active:scale-[0.99]"
+              className="flex flex-row sm:flex-col items-center sm:items-start p-3.5 bg-white border border-brand-border rounded-2xl hover:border-brand-accent/50 hover:bg-white hover:shadow-lg transition-all text-left gap-3.5 sm:space-y-2.5 sm:gap-0 group active:scale-[0.99]"
             >
-              <div className="p-2.5 bg-brand-warning/10 rounded-xl text-brand-warning group-hover:scale-105 transition-transform">
+              <div className="p-2.5 bg-brand-warning/10 rounded-xl text-brand-warning group-hover:scale-105 transition-transform shrink-0">
                 <Smartphone className="w-5 h-5" />
               </div>
-              <div>
+              <div className="flex-1">
                 <h3 className="text-xs font-bold text-brand-dark flex items-center gap-1">
-                  <span>Guest Login Mobile App</span>
+                  <span>Guest Mobile App</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                 </h3>
-                <p className="text-[10px] text-brand-muted mt-1 leading-relaxed">
-                  Launch the field salesman interface simulator. Test offline booking grids, shop stops, and local AI suggestions.
+                <p className="text-[10px] text-brand-muted mt-0.5 leading-relaxed hidden sm:block">
+                  Launch field agent simulator. Test offline booking and AI route options.
+                </p>
+                <p className="text-[10px] text-brand-muted mt-0.5 leading-relaxed sm:hidden">
+                  Launch the field salesman order booking interface.
                 </p>
               </div>
-              <span className="text-[9px] font-extrabold text-brand-warning px-2 py-0.5 rounded bg-brand-warning/5 self-start">
-                Mobile App View
+              <span className="text-[9px] font-extrabold text-brand-warning px-1.5 py-0.5 rounded bg-brand-warning/5 self-center sm:self-start shrink-0">
+                Field App
               </span>
             </button>
 
@@ -441,9 +447,9 @@ export default function EntryPortal() {
         </div>
 
         {/* Footer */}
-        <div className="pt-8 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between text-[10px] text-brand-muted font-semibold gap-2">
+        <div className="pt-6 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between text-[10px] text-brand-muted font-semibold gap-3 text-center sm:text-left">
           <span>© 2026 BeatFlow Technologies. Built for Pakistan FMCG sectors.</span>
-          <div className="flex items-center gap-1 text-brand-accent">
+          <div className="flex items-center gap-1 text-brand-accent justify-center">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Secure Enterprise SSL</span>
           </div>
