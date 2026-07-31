@@ -26,7 +26,7 @@ export default function ClientProfile() {
   const agent = mockSalesmen[0];
 
   const handleLogout = () => {
-    router.push('/app');
+    router.push('/');
   };
 
   return (

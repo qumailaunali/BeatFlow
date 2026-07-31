@@ -19,7 +19,8 @@ import {
   Bell,
   Search,
   Smartphone,
-  Globe
+  Globe,
+  LogOut
 } from 'lucide-react';
 
 interface SidebarItem {
@@ -123,6 +124,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           >
             <Smartphone className="w-5 h-5 shrink-0" />
             {!collapsed && <span>Launch Field App</span>}
+          </Link>
+        </div>
+
+        {/* Sign Out Button */}
+        <div className="p-3 border-t border-brand-border/10">
+          <Link
+            href="/"
+            className={`flex items-center gap-3 px-3 py-3 rounded-xl bg-brand-danger/10 text-brand-danger border border-brand-danger/20 hover:bg-brand-danger/20 transition-all duration-200 text-sm font-semibold ${
+              collapsed ? 'justify-center' : ''
+            }`}
+            title="Sign Out"
+          >
+            <LogOut className="w-5 h-5 shrink-0" />
+            {!collapsed && <span>Sign Out</span>}
           </Link>
         </div>
 

@@ -146,7 +146,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      <div className="min-h-screen bg-neutral-900 flex items-center justify-center p-0 md:p-8 font-sans">
+      <div className="min-h-screen bg-[#E8F0EA] grid-motif flex items-center justify-center p-0 md:p-8 font-sans">
         {/* Quick Link to Return to Admin Dashboard (Desktop only float) */}
         <div className="hidden lg:flex fixed left-6 top-6 z-50 flex-col gap-2">
           <Link
