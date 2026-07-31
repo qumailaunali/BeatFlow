@@ -189,6 +189,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <div className="w-10 h-10 rounded-xl bg-brand-accent text-white flex items-center justify-center font-bold font-display shadow-md shadow-brand-accent/10 border border-brand-border/10">
                 HS
               </div>
+              
+              {/* Header Sign Out Link */}
+              <Link
+                href="/"
+                className="p-2 text-brand-danger hover:bg-red-50 hover:text-red-600 rounded-xl border border-transparent hover:border-brand-border transition-all ml-1"
+                title="Sign Out"
+              >
+                <LogOut className="w-5 h-5 shrink-0" />
+              </Link>
             </div>
           </div>
         </header>
